@@ -1,0 +1,9 @@
+{
+    "name": "chitchatter-js",
+    "version": "0.1.0",
+    "description": "A seamless JavaScript library to allow chat automation across different conversation providers.",
+    "dependencies": {
+        "pg": "^8.16.3",
+        "redis": "^5.6.1"
+    }
+}
