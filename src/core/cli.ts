@@ -10,15 +10,13 @@ export async function startStandaloneCli() {
 
     rl.on('line', (input) => {
         const nextInput = input;
-        console.log(`Received: ${nextInput}`);
-        // process the input
+        console.log(`echo: ${nextInput}`);
         if (nextInput.trim() === 'exit') {
             rl.close();
         } else {
             rl.prompt();
         }
     }).on('close', () => {
-        console.log('Exiting CLI.');
         process.exit(0);
     });
 
