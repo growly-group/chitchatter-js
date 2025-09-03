@@ -78,9 +78,7 @@ class EmbedBuilder {
     }
 
     addField(name: string, value: string, inline: boolean = false): this {
-        if (!this.data.fields) {
-            this.data.fields = [];
-        }
+        this.data.fields ??= [];
 
         if (this.data.fields.length >= EMBED_LIMITS.fields) {
             throw new Error(`You excepted the limit for fields: ${EMBED_LIMITS.fields}`)
