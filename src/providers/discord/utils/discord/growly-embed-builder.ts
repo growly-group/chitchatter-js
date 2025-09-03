@@ -97,16 +97,18 @@ class EmbedBuilder {
     }
 
     build(): EmbedData {
-        let totalLength = 0;
-        totalLength += this.data.title?.length ?? 0;
-        totalLength += this.data.description?.length ?? 0;
-        totalLength += this.data.footer?.text.length ?? 0;
-        totalLength += this.data.author?.name.length ?? 0;
+        const baseLength = [
+            this.data.title,
+            this.data.description,
+            this.data.footer?.text,
+            this.data.author?.name,
+        ].reduce((sum, field) => sum + (field?.length ?? 0), 0)
 
-        this.data.fields?.forEach(field => {
-            totalLength += field.name.length;
-            totalLength += field.value.length;
-        });
+        const fieldsLength = this.data.fields?.reduce(
+            (sum, field) => sum + field.name.length + field.value.length, 0
+        ) ?? 0;
+
+        const totalLength = baseLength + fieldsLength;
 
         if (totalLength > EMBED_LIMITS.total) {
             throw new Error(`You have excepted the maximum limit for the embed: ${EMBED_LIMITS.total}`);
