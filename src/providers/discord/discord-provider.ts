@@ -13,15 +13,15 @@ class DiscordWebhook {
     private defaultAvatarUrl: string;
 
     constructor() {
-        const webhookUrl = Bun.env.WEBHOOK_URL;
+        const webhookUrl = process.env.WEBHOOK_URL;
         if (!webhookUrl) {
             console.error("Verifique o arquivo .env na raiz do projeto e verifique se colocou o Webhook corretamente.");
             process.exit(1);
         }
 
         this.webhookUrl = webhookUrl;
-        this.defaultUsername = Bun.env.BOT_USERNAME || "WebHook";
-        this.defaultAvatarUrl = Bun.env.BOT_AVATAR_URL || "https://i.pinimg.com/1200x/c4/86/26/c486262e0309b85a93b4274d3a0a396f.jpg";
+        this.defaultUsername = process.env.BOT_USERNAME || "WebHook";
+        this.defaultAvatarUrl = process.env.BOT_AVATAR_URL || "https://i.ibb.co/rR4bf5Jy/169310904-s-200-v-4.png";
     }
 
 
