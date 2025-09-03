@@ -1,4 +1,4 @@
-import type { EmbedData } from './utils/discord/GrowlyEmbed';
+import type { EmbedData } from './utils/discord/growly-embed';
 export type DiscordMessage = string | EmbedData;
 
 
