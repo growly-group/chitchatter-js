@@ -15,7 +15,7 @@ class DiscordWebhook {
     constructor() {
         const webhookUrl = process.env.WEBHOOK_URL;
         if (!webhookUrl) {
-            console.error("Verifique o arquivo .env na raiz do projeto e verifique se colocou o Webhook corretamente.");
+            console.error("WEBHOOK_URL can't be empty. Check .env");
             process.exit(1);
         }
 
