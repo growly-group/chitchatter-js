@@ -114,7 +114,7 @@ class EmbedBuilder {
             throw new Error(`You have excepted the maximum limit for the embed: ${EMBED_LIMITS.total}`);
         }
 
-        return { ...this.data };
+        return this.data;
     }
 }
 
