@@ -20,7 +20,7 @@ class EmbedBuilder {
 
     setTitle(title: string): this {
         if (title.length > EMBED_LIMITS.title) {
-            throw new Error(`Tamanho máximo para título: ${EMBED_LIMITS.title}`)
+            throw new Error(`You excepted the limit for titles: ${EMBED_LIMITS.title}`)
         }
         this.data.title = title;
         return this;
@@ -28,7 +28,7 @@ class EmbedBuilder {
 
     setDescription(description: string): this {
         if (description.length > EMBED_LIMITS.description) {
-            throw new Error(`Tamanho máximo para descrição: ${EMBED_LIMITS.description}`);
+            throw new Error(`You excepted the limit for description: ${EMBED_LIMITS.description}`);
         }
         this.data.description = description;
         return this;
@@ -52,7 +52,7 @@ class EmbedBuilder {
 
     setFooter(text: string, iconURL?: string): this {
         if (text.length > EMBED_LIMITS.footerText) {
-            throw new Error(`Tamanho máximo para o rodapé: ${EMBED_LIMITS.footerText}`)
+            throw new Error(`You excepted the limit for footerText: ${EMBED_LIMITS.footerText}`)
         }
         this.data.footer = { text, icon_url: iconURL };
         return this;
@@ -70,7 +70,7 @@ class EmbedBuilder {
 
     setAuthor(name: string, iconURL?: string, url?: string): this {
         if (name.length > EMBED_LIMITS.authorName) {
-            throw new Error(`Tamanho máximo para o rodapé: ${EMBED_LIMITS.authorName}`)
+            throw new Error(`You excepted the limit for authorName: ${EMBED_LIMITS.authorName}`)
         }
         this.data.author = { name, icon_url: iconURL, url };
         return this;
@@ -83,15 +83,15 @@ class EmbedBuilder {
         }
 
         if (this.data.fields.length >= EMBED_LIMITS.fields) {
-            throw new Error(`Tamanho máximo para campos: ${EMBED_LIMITS.fields}`)
+            throw new Error(`You excepted the limit for fields: ${EMBED_LIMITS.fields}`)
         }
 
         if (name.length > EMBED_LIMITS.fieldName) {
-            throw new Error(`Tamanho máximo para nome dos campos: ${EMBED_LIMITS.fieldName}`)
+            throw new Error(`You excepted the limit for fieldName: ${EMBED_LIMITS.fieldName}`)
         }
 
         if (value.length > EMBED_LIMITS.fieldValue) {
-            throw new Error(`Tamanho máximo para texto dos campos: ${EMBED_LIMITS.fieldValue}`)
+            throw new Error(`You excepted the limit for fieldValue: ${EMBED_LIMITS.fieldValue}`)
         }
 
         this.data.fields.push({ name, value, inline });
@@ -111,7 +111,7 @@ class EmbedBuilder {
         });
 
         if (totalLength > EMBED_LIMITS.total) {
-            throw new Error(`Tamanho máximo para o embed: ${EMBED_LIMITS.total}`);
+            throw new Error(`You have excepted the maximum limit for the embed: ${EMBED_LIMITS.total}`);
         }
 
         return { ...this.data };
