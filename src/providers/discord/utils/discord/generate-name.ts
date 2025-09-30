@@ -8,7 +8,7 @@ export function generateName(fileName: string) {
     const name = path.basename(fileName, path.extname(fileName))
     let discordSafeName = name.replace(/[^a-zA-Z0-9_]/g, '_')
 
-    if (!name) discordSafeName = `emoji_${crypto.randomBytes(4).toString('hex')}`
+    if (!name || name.length > 32) discordSafeName = `emoji_${crypto.randomBytes(4).toString('hex')}`
 
     const HASH = crypto
         .createHash('md5')
